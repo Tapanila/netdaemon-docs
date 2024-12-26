@@ -42,7 +42,7 @@ The recommended way to get the application template is to install the dotnet cli
 #### Use the default compiled deployment template
 
 ```bash
-dotnet new --install NetDaemon.Templates.Project
+dotnet new install NetDaemon.Templates.Project
 mkdir NetDaemonApps
 cd NetDaemonApps
 dotnet new nd-project
@@ -51,7 +51,7 @@ dotnet new nd-project
 #### Use the source code deployment template
 
 ```bash
-dotnet new --install NetDaemon.Templates.Project
+dotnet new install NetDaemon.Templates.Project
 mkdir NetDaemonApps
 cd NetDaemonApps
 dotnet new nd-src-project
