@@ -68,7 +68,7 @@ We provide a Docker file in the project template to use as a start and a dev con
 
 ### 2.1 Visual Studio
 
-You should be all set, so skip to step 3.
+You should be all set, so skip to [step 3](#3-usage).
 
 ### 2.2 Visual Studio Code
 
@@ -132,7 +132,7 @@ HINTS:
 - It is recommended to install the C# Extensions (ms-dotnettools.csharp) in Studio Code Server to get Semantic Highlighting and IntelliSense.
 - Open only the folder where the solution/project is located to ensure that the C# Extension works properly.
 
-#### Usage
+### 3. Usage
 
 NetDaemon development environment needs to be configured to connect to Home Assistant. 
 Minimal config is: hostname/ip, port and access token. 
