@@ -9,7 +9,7 @@ Before you get started we recommend thinking about how you want to develop and d
 We have two different options. 
 Select the workflow and capabilities that best fits your needs.
 
-### Deploy compiled assemblies and configurations
+### 1.1 Deploy compiled assemblies and configurations
 
 With this option you use the default NetDaemon project template as a start. This is the default and recommended option. 
 This option offers:
@@ -18,7 +18,7 @@ This option offers:
 - Use external nuget packages.
 - Add your own DI that will get injected in your apps
 
-### Deploy source files and configurations
+### 1.2 Deploy source files and configurations
 
 With this option you can deploy the actual source and NetDaemon will compile them and use it dynamically. This option offers:
 
@@ -35,11 +35,11 @@ We recommend using the dotnet cli tool to get the NetDaemon project template. Wa
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8FDWLy9JtJM" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Use dotnet cli tool
+### 2.1 Use dotnet cli tool
 
 The recommended way to get the application template is to install the dotnet cli tool.
 
-#### Use the default compiled deployment template
+#### 2.2 Use the default compiled deployment template
 
 ```bash
 dotnet new install NetDaemon.Templates.Project
@@ -48,7 +48,7 @@ cd NetDaemonApps
 dotnet new nd-project
 ```
 
-#### Use the source code deployment template
+#### 2.3 Use the source code deployment template
 
 ```bash
 dotnet new install NetDaemon.Templates.Project
@@ -57,20 +57,20 @@ cd NetDaemonApps
 dotnet new nd-src-project
 ```
 
-### Clone the the project template from repo
+### 2.4 Clone the the project template from repo
 
 We are deprecating the use of the app template repo. Please use any of the dotnet cli templates.
 
-## 2. Configure your development tool
+## 3. Configure your development tool
 
 We support most popular options. We strongly recommend using containers to run and debug your apps but local compilation and debugging is also supported. 
 We provide a Docker file in the project template to use as a start and a dev container for VSCode.
 
-### 2.1 Visual Studio
+### 3.1 Visual Studio
 
-You should be all set, so skip to [step 3](#3-usage).
+You should be all set, so skip to [step 4](#4-usage).
 
-### 2.2 Visual Studio Code
+### 3.2 Visual Studio Code
 
 Dev Containers are the preferred way to develop your apps. This also requires Docker to be installed. 
 You can also develop and debug directly on your dev machine without Docker.
@@ -79,7 +79,7 @@ You can also develop and debug directly on your dev machine without Docker.
 2. Open folder, the newly cloned template
 3. Run task: `Dev Containers: Open Folder in Container...`. Wait until it fully opened
 
-### 2.3 JetBrains Rider
+### 3.3 JetBrains Rider
 
 Just as with Visual Studio it is ready to go for local compile and debugging of your apps.
 
@@ -98,9 +98,7 @@ To configure a container, perform the following steps:
 
 Ensure that the "DOCKERFILE" profile is selected in the toolbar and then `Run` and `Debug` will execute within the container.
 
-### 2.4 Studio Code Server Addon
-
-#### Setup
+### 3.4 Studio Code Server Addon
 
 1. In Home Assistant go to Configurations -> Add-ons, Backups & Supervisor -> Add-on Store -> Menu -> Repositories
 2. Add the repository: [https://github.com/hassio-addons/repository](https://github.com/hassio-addons/repository)
@@ -132,7 +130,7 @@ HINTS:
 - It is recommended to install the C# Extensions (ms-dotnettools.csharp) in Studio Code Server to get Semantic Highlighting and IntelliSense.
 - Open only the folder where the solution/project is located to ensure that the C# Extension works properly.
 
-### 3. Usage
+## 4. Usage
 
 NetDaemon development environment needs to be configured to connect to Home Assistant. 
 Minimal config is: hostname/ip, port and access token. 
@@ -167,29 +165,29 @@ Example `appsettings.json` file
 }
 ```
 
-## Develop and debug your apps
+## 5. Develop and debug your apps
 
 Now properly configured you can develop your application. The template shows examples of developing and testing your apps. A sample app has been provided for you: `src/apps/HassModel/HelloWorld/HelloWorld.cs`.
 
 Debug and run your apps and view log output for errors.
 
-## Deploy your apps
+## 6. Deploy your apps
 
 After you have developed and tested your apps it is time to deploy and run the apps in the production environment. The two different deployment options have different deployment methods.
 
-### Compiled assemblies and configurations
+### 6.1 Compiled assemblies and configurations
 
 Use `dotnet publish -c Release -o [your output directory]` and copy all content from `[your output directory]` to `/config/netdaemon5` if you are using add-on, or the destination folder you chose in the other hosting options.
 
 See [installation docs](user\started\installation.md) for how to configure different hosting options.
 
-### Source files and configurations
+### 6.2 Source files and configurations
 
 **Do not copy project files. Only copy the contents under the `apps` folder!**
 Copy the content from the `apps` folder to to `/config/netdaemon5` if you are using add-on (note that you might have changed the destination in add-on config), or the destination folder you chose in the other hosting options. **Do not copy project files. Only copy the contents under the `apps` folder!**
 
 See [installation docs](user\started\installation.md) for how to configure different hosting options.
 
-### Keep your dependencies and tools up-to-date
+### 6.3 Keep your dependencies and tools up-to-date
 
 In the template projects we provided a convenient powershell script that will update NetDaemon and dependent packages to the latest versions: `update_all_dependencies.ps1`.
