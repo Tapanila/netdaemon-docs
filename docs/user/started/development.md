@@ -141,7 +141,7 @@ If you did not already provide this information when creating the new project us
 Edit the values in the `appsettings.json`. The following settings are mandatory:
 
 - `Host`, the ip or hostname, (port defaults to 8123)
-- `Token`, the long lived access token
+- `Token`, the long lived access token, [HA Documentation](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token)
 
 Example `appsettings.json` file
 
